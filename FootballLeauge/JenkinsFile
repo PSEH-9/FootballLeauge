@@ -1,0 +1,13 @@
+node('master'){
+
+  stage('Clone'){
+      git url: 'https://github.com/PSEH-9/FootballLeauge.get'
+  }
+  stage(Build){
+    sh '''
+      cd $WORKSPACE/FootballLeauge
+      mvn clean install deploy
+      '''
+  }
+
+}
